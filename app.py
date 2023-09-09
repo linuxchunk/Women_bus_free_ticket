@@ -61,7 +61,7 @@ def index():
         user_profile = UserProfile.query.filter_by(Aadhar_number=Aadhar_number).first()
 
         if user_profile:
-            if user_profile.is_woman:
+            if user_profile.is_woman == "True":
                 # Generate a unique ticket ID (you may want to use a more robust method)
                 ticket_id = 0
                 ticket_id =+ 1
