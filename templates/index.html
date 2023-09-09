@@ -1,29 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Bus Ticket Booking for Women</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gov Bus</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Bus Ticket Booking for Women</h1>
-    <form method="POST" action="/">
-        <label for="startPoint">Starting Point:</label>
-        <input type="text" id="startPoint" name="startPoint" required><br><br>
-
-        <label for="destination">Destination:</label>
-        <input type="text" id="destination" name="destination" required><br><br>
-
-        <label for="Aadhar_number">Aadhar number:</label>
-        <input type="text" id="mobileNumber" name="mobileNumber" required><br><br>
-
-        <button type="submit">Generate Ticket</button>
-    </form>
-    <div>
-        {% if message %}
-            <p>{{ message }}</p>
-        {% endif %}
-        {% if qr_code %}
-            <img src="{{ qr_code }}" alt="QR Code">
-        {% endif %}
+    <div id="bg" class="bg1">
+        
+        <div class="col-6 Bus1">
+            <img alt="IRCTC Bus Booking" class="img-fluid" height="88" loading="lazy" src="img/Bus1.png" width="219">
+        </div>
     </div>
+    <div class="footer">
+        <div class="Home-heading">
+            <h1><i class="fas fa-bus mr-3" style="font-size: 32px;"></i>Book Bus Ticket</h1>
+        </div>
+        <!-- <h2 class="subtitle">Book Bus Tickets Online</h2> -->
+        <div class="card">
+                
+            <form novalidate="" class="ng-untouched ng-pristine ng-valid">
+                <div class="form-in-custom">
+                    <!-- <label class="active" for="departFrom">Entery point</label> -->
+                    <input class="form-control ng-untouched ng-pristine ng-valid" id="departFrom" name="departFrom" placeholder="Entered from" type="text" value=""><!---->
+                </div>
+                <div class="form-in-custom form-in-custom2">
+                <div class="fa-exchange-alt-wrap d-none d-md-block"><i class="fas fa-exchange-alt"></i></div>
+                    <!-- <label class=" active" for="goingTo">Destination</label> -->
+                    <input class="form-control ng-untouched ng-pristine ng-valid" id="goingTo" name="goingTo" placeholder="Going To" type="text" value=""><!----><!---->
+                </div>
+                <div class="form-in-custom">
+                    <!-- <label class="active" for="departDate">Aadhar</label> -->
+                    <input class="form-control date-picker-caLender ng-untouched ng-pristine ng-valid" id="departDate" name="departDate" placeholder="Aadhar number" readonly="" type="text" value=""><!---->
+                </div>
+                <div class="form-in-custom3">
+                    <button class="btn btn-md btn-primary btn-radius yellow-gradient btn-shadow" type="submit">Generate Ticket<i class="fas fa-search ml-1"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>
