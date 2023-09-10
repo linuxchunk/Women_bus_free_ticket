@@ -20,40 +20,60 @@
       </div>
     </div>
     <main>
-      <h1>Book Bus Ticket for Women</h1>
-      <form method="POST" action="/">
-        <!-- <label for="startPoint">Starting Point:</label> -->
-        <select id="startPoint" name="startPoint" required>
-            <option value="">Select From</option>
-            <option value="1">Stop 1</option>
-            <option value="2">Stop 2</option>
-            <option value="3">Stop 3</option>
-          </select>
-        <br /><br />
+      <div class="container">
+        <h1>Book Bus Ticket for Women</h1>
+        <form method="POST" action="/">
+          <div class="input_holder">
+            <div class="dropdown">
+              <!-- <label for="startPoint">Starting Point:</label> -->
+              <select id="startPoint" name="startPoint" required>
+                <option value="">Select From</option>
+                <option value="1">Stop 1</option>
+                <option value="2">Stop 2</option>
+                <option value="3">Stop 3</option>
+              </select>
 
-        <!-- <label for="destination">Destination:</label> -->
-        <select id="destination" name="destination" required>
-            <option value="">Select From</option>
-            <option value="4">Stop 4</option>
-            <option value="5">Stop 5</option>
-            <option value="6">Stop 6</option>
-          </select>
-          <br /><br />
+              <!-- <label for="destination">Destination:</label> -->
+              <select id="destination" name="destination" required>
+                <option value="">Select From</option>
+                <option value="4">Stop 4</option>
+                <option value="5">Stop 5</option>
+                <option value="6">Stop 6</option>
+              </select>
+            </div>
+            <div>
+              <!-- <label for="Aadhar_number">Aadhar number:</label> -->
+              <input
+                type="text"
+                id="mobileNumber"
+                name="mobileNumber"
+                placeholder="Aadhar Number"
+                maxlength="12"
+                max="999999999999"
+                required
+              /><br /><br />
+            </div>
+          </div>
+          <button type="submit" class="open-button" id="modal">Generate Ticket</button>
+        </form>
 
-        <!-- <label for="Aadhar_number">Aadhar number:</label> -->
-        <input
-          type="text"
-          id="mobileNumber"
-          name="mobileNumber"
-          placeholder="Aadhar Number"
-          maxlength="12"
-          max="999999999999"
-          required
-        /><br /><br />
+        <dialog class="modal" id="modal">
+          <div>
+            {% if message %}
+            <p>{{ message }}</p>
+            {% endif %} {% if qr_code %}
+            <img src="{{ qr_code }}" alt="QR Code" />
+            {% endif %}
+          </div>
+          <button class="button close-button">close modal</button>
+        </dialog>
         
-
-        <button type="submit">Generate Ticket</button>
-      </form>
+      </div>
     </main>
+
+
+    <script src="script.js"></script>
+    <script src="pop.js"></script>
+
   </body>
 </html>
