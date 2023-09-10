@@ -1,0 +1,169 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Regular',sans-serif;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+#bg {
+    margin-top:-100px;
+    height: 350px;
+    width:100%;
+    background: url(img/Bus_Banner01.jpg) repeat-x;
+    animation: animate-background linear 50s infinite;
+    transform: scale(1);
+    overflow: hidden;
+    display: flex;
+}
+/* .bg {
+    border: 3px solid;
+} */
+
+@keyframes animate-background {
+    from {
+        background-position: 0px;
+        }
+    to {
+        background-position: -1350px;
+        }
+}
+.title {
+    /* border: 3px solid; */
+    text-align: center;
+    padding-inline: 15px;
+    margin: -140px 50px 20px;
+    margin-inline: 5% 10%;
+    writing-mode: horizontal-tb;
+}
+.Bus1{
+    /* border: 1px solid; */
+    margin-top: 15rem;
+    margin-bottom: 5rem;
+    margin-left: 10rem;
+    text-align: left;
+    padding: 5px;
+}
+.footer {
+    width: 100%;
+    height:30.55rem;
+    /* border: 2px solid; */
+    margin-top: 0px;
+    padding: 210px;
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url(img/stock-photo-anegundi-karnataka-india-november-closeup-of-colorfully-clothed-people-sitting-on-1919851775-transformed.jpeg);
+    background-size: cover;
+    background-blend-mode: darken;
+    /* display: flex; */
+}
+
+/* --------------------- */
+
+.card {
+    position: relative;
+    /* display: -ms-flexbox; */
+    display: flex;
+    /* -ms-flex-direction: column; */
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+form {
+    display: block;
+    margin-top: 0em;
+}
+.form-in-custom {
+    width: 28%;
+    float: left;
+    margin: 0;
+    border-right: 1px solid #dddada;
+    padding: 5px;
+    position: relative;
+}
+.form-in-custom label {
+    top: 15px;
+    left: 10px;
+    margin-bottom: 0;
+    font-size: 13px;
+    font-weight: 500;
+}
+label{
+    display: inline-block;
+}
+.form-in-custom .form-control {
+    font: 400 20px Roboto,sans-serif;
+    margin: 0;
+    border: none!important;
+    color: #333;
+    padding: 0;
+    height: calc(1em + 0.25rem + 2px);
+}
+.form-in-custom.form-in-custom2 {
+    padding-left: 25px;
+}
+.form-in-custom .form-control.date-picker-caLender {
+    padding-right: 40px;
+    background: url(../img/calender-b.png) 97% 4px/20px no-repeat;
+}
+button:not(:disabled) {
+    cursor: pointer;
+}
+.yellow-gradient {
+    background: #f7c02c;
+    color: #2d2383;
+    font-weight: 400;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+.btn-radius {
+    border-radius: 25px;
+}
+input::placeholder {
+    font: 1rem/3 sans-serif;
+}
+input:focus {
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+}
+input{       
+     border: none;
+    outline: none;}
+.btn {
+    display: inline-block;
+    /* font-weight: 400;
+    color: #212529; */
+    text-align: center;
+    vertical-align: middle;
+    /* cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; */
+    user-select: none;
+    /* background-color: transparent;
+    border: 1px solid transparent; */
+    font-size: 1rem;
+    line-height: 1.5;
+    padding-left: 10px;
+    margin-top: 4px;
+    padding-right: 10px;
+    /* border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; */
+}
+
+.form-in-custom3 {
+    /* display: block; */
+    text-align: center;
+}
+.Home-heading {
+    text-align: center;
+    color: #fff;
+    margin-top: -150px;
+} 
