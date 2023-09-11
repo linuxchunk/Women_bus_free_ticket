@@ -20,7 +20,7 @@ body {
   margin-top: -100px;
   height: 350px;
   width: 100%;
-  background: url(img/Bus_Banner01.jpg) repeat-x;
+  background: url("/static/media/img/Bus_Banner01.jpg") repeat-x; /*Bus_Banner01.jpg*/
   animation: animate-background linear 50s infinite;
   transform: scale(1);
   overflow: hidden;
@@ -45,7 +45,7 @@ body {
 main {
   height: 550px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url(img/home_bg.jpeg);
+    url(/static/media/img/home_bg.jpeg); /*home_bg.jpeg*/
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

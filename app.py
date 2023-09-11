@@ -4,7 +4,7 @@ import qrcode
 import csv
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 # Configure the database URI (SQLite in this example)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///bus_ticket.db'
@@ -22,7 +22,7 @@ class BusRoute(db.Model):
 class UserProfile(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Aadhar_number = db.Column(db.String(10), unique=True, nullable=False)
-    is_woman = db.Column(db.Boolean, default=False)
+    is_woman = db.Column(db.String(10), default=False)
 
     def __init__(self, Aadhar_number, is_woman=False):
         self.Aadhar_number = Aadhar_number
@@ -83,9 +83,9 @@ def index():
                 return render_template('index.html', qr_code=f'static/ticket_{ticket_id}.png')
 
             else:
-                message = 'Sorry, men are not eligible for free tickets.'
+                message = False
         else:
-            message = 'User not found in the database.'
+            message = False
 
     return render_template('index.html', message=message, qr_code=qr_code)
 
