@@ -83,9 +83,9 @@ def index():
                 return render_template('index.html', qr_code=f'static/ticket_{ticket_id}.png')
 
             else:
-                message = False
+                message = "Mens are not allowed for free ticket"
         else:
-            message = False
+            message = "User not found in database"
 
     return render_template('index.html', message=message, qr_code=qr_code)
 

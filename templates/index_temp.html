@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bus Ticket Booking for Women</title>
+  </head>
+  <body>
+    <h1>Bus Ticket Booking for Women</h1>
+    <form method="POST" action="/">
+      <label for="startPoint">Starting Point:</label>
+      <input
+        type="text"
+        id="startPoint"
+        name="startPoint"
+        required
+      /><br /><br />
+
+      <label for="destination">Destination:</label>
+      <input
+        type="text"
+        id="destination"
+        name="destination"
+        required
+      /><br /><br />
+
+      <label for="Aadhar_number">Aadhar number:</label>
+      <input
+        type="text"
+        id="mobileNumber"
+        name="mobileNumber"
+        required
+      /><br /><br />
+
+      <button type="submit">Generate Ticket</button>
+    </form>
+    <div>
+      {% if message %}
+      <p>{{ message }}</p>
+      {% endif %} {% if qr_code %}
+      <img src="{{ qr_code }}" alt="QR Code" />
+      {% endif %}
+    </div>
+  </body>
+</html>
