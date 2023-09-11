@@ -1,10 +1,12 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+import random
 import qrcode
 import csv
 
 
 app = Flask(__name__, static_url_path='/static')
+
 
 # Configure the database URI (SQLite in this example)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///bus_ticket.db'
@@ -63,9 +65,7 @@ def index():
         if user_profile:
             if user_profile.is_woman == "True":
                 # Generate a unique ticket ID (you may want to use a more robust method)
-                ticket_id = 0
-                ticket_id =+ 1
-
+                ticket_id = random.randint(10000, 99999)
                 # Create a QR code for the ticket
                 qr = qrcode.QRCode(
                     version=1,
@@ -80,14 +80,20 @@ def index():
                 # Save the QR code image
                 qr_img.save(f'static/ticket_{ticket_id}.png')
 
-                return render_template('index.html', qr_code=f'static/ticket_{ticket_id}.png')
+                return render_template('indextemp.html', qr_code=f'static/ticket_{ticket_id}.png')
 
             else:
                 message = "Mens are not allowed for free ticket"
         else:
             message = "User not found in database"
 
-    return render_template('index.html', message=message, qr_code=qr_code)
+
+    return render_template('indextemp.html', message=message, qr_code=qr_code)
+
+
+
+
+
 
 @app.route('/import_csv')
 def trigger_csv_import():

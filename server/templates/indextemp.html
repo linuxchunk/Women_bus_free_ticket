@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gov Ticket Generater</title>
+    <!-- <link rel="stylesheet" href="/static/style.css" /> //style.css -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div id="bg" class="bg1">
+      <div class="col-6 Bus1">
+        <img
+          alt="IRCTC Bus Booking"
+          class="img-fluid"
+          height="88"
+          loading="lazy"
+          src="{{ url_for('static', filename='media/img/Bus1.png') }}"
+          width="219"
+        />
+      </div>
+    </div>
+    
+    <main>  
+      <div class="container">
+        <h1>Book Bus Ticket for Women</h1>
+        <form method="POST" action="/">
+          <div class="input_holder">
+            <div class="dropdown">
+              <!-- <label for="startPoint">Starting Point:</label> -->
+              <select id="startPoint" name="startPoint" required>
+                <option value="">Source</option>
+                <option value="1">Stop 1</option>
+                <option value="2">Stop 2</option>
+                <option value="3">Stop 3</option>
+              </select>
+
+              <!-- <label for="destination">Destination:</label> -->
+              <select id="destination" name="destination" required>
+                <option value="">Destination</option>
+                <option value="4">Stop 4</option>
+                <option value="5">Stop 5</option>
+                <option value="6">Stop 6</option>
+              </select>
+            </div>
+            <div>
+              <!-- <label for="Aadhar_number">Aadhar number:</label> -->
+              <input
+                type="text"
+                id="mobileNumber"
+                name="mobileNumber"
+                placeholder="Aadhar Number"
+                maxlength="12"
+                max="999999999999"
+                required
+              /><br /><br />
+            </div>
+          </div>
+          <button type="submit" class="open-button" id="modal">
+            Generate Ticket
+          </button>
+        </form>
+
+        <div >
+          {% if message %}
+          <p class="message">{{ message }}</p>
+          {% endif %} {% if qr_code %}
+          <img src="{{ qr_code }}" alt="QR Code" class="qr"/>
+          {% endif %}
+        </div>
+
+        <!-- <dialog class="modal" id="modal">
+          <div>
+            {% if message %}
+            <p>{{ message }}</p>
+            {% endif %} {% if qr_code %}
+            <img src="/{{ qr_code }}" alt="QR Code" />
+            {% endif %}
+          </div>
+          <button class="button close-button">close modal</button>
+        </dialog>
+      
+      -->
+<!-- 
+        <button class="button open-button">open modal</button>
+
+        <dialog class="modal" id="modal">
+          <h2>An interesting title</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum esse
+            nisi, laboriosam illum temporibus ipsam?
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quo.
+          </p>
+
+          <button class="button close-button">close modal</button>
+          <form class="form" method="dialog">
+            <label>Your name <input type="text" /></label>
+            <label>Your email <input type="email" /></label>
+            <button class="button" type="submit">submit form</button>
+          </form>
+        </dialog> -->
+      </div>
+    </main>
+
+    <script src="/static/pop.js"></script>
+    <script src="/static/script.js"></script>
+  </body>
+</html>
