@@ -1,5 +1,5 @@
 # Women_bus_free_ticket
-## django app for booking free ticket for women in bus
+## Flask app for booking free ticket for women in bus
 
 ### How to run 
 ```bash
@@ -10,4 +10,4 @@ python3 app.py
 - women can book free ticket in bus without any mobile
 - app was directly connected to aadhar card for verification
 - man cannot book ticket from this app
-- it can be directly implemented in bus
+- it can be directly implemented in bus 

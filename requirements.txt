@@ -1,4 +1,4 @@
 flask
 qrcode
-csv
+python-csv
 Flask-SQLAlchemy
