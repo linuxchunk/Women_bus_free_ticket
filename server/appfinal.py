@@ -1,17 +1,28 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-import qrcode
 import random
+import qrcode
 import csv
 from datetime import datetime
 
+
+
 app = Flask(__name__, static_url_path='/static')
+
 
 # Configure the database URI (SQLite in this example)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///bus_ticket.db'
 db = SQLAlchemy(app)
 
-# Define the Ticket model
+# Define the BusRoute model
+class BusRoute(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), unique=True, nullable=False)
+
+    def __init__(self, name):
+        self.name = name
+
+
 class Ticket(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     serial_number = db.Column(db.Integer, unique=True, nullable=False)
@@ -26,7 +37,10 @@ class Ticket(db.Model):
         self.start_point = start_point
         self.destination = destination
 
-# Define the UserProfile model
+    
+
+
+# Define the UserProfile model for phone numbers and gender
 class UserProfile(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Aadhar_number = db.Column(db.String(10), unique=True, nullable=False)
@@ -40,7 +54,7 @@ class UserProfile(db.Model):
 with app.app_context():
     db.create_all()
 
-# Define a function to import data from the CSV file
+## Define a function to import data from the CSV file
 def import_data_from_csv():
     with open('data.csv', mode='r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
@@ -86,17 +100,13 @@ def index():
                 # Save the QR code image
                 qr_img.save(f'static/ticket_{ticket_id}.png')
 
-                # Store the ticket details in the database
-                ticket = Ticket(serial_number=ticket_id, mobile_number=Aadhar_number, start_point=start_point, destination=destination)
-                db.session.add(ticket)
-                db.session.commit()
-
                 return render_template('indextemp.html', qr_code=f'static/ticket_{ticket_id}.png')
 
             else:
                 message = "Mens are not allowed for free ticket"
         else:
             message = "User not found in database"
+
 
     return render_template('indextemp.html', message=message, qr_code=qr_code)
 
@@ -105,10 +115,12 @@ def ticket_count():
     total_tickets = Ticket.query.count()
     return render_template('ticket_count.html', total_tickets=total_tickets)
 
+
 @app.route('/import_csv')
 def trigger_csv_import():
     import_data_from_csv()
     return 'CSV data import complete.'
 
+
 if __name__ == '__main__':
-    app.run(debug=True, port=5600)
+    app.run(debug=True,port=5600)
