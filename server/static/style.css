@@ -185,3 +185,24 @@ h1 em {
   width: 8%;
   top: 5%;
 }
+
+.ticketcnt{
+  position: fixed;
+  bottom: 1%;
+  left: 1%;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid black;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2px 5px;
+  border-radius: 15px;
+  text-align: center;
+}
+.ticketcnt:visited{
+  color: black;
+}
+.ticketcnt:active{
+  color: red;
+}
